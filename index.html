@@ -7,10 +7,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <link rel="stylesheet" href="https://yastatic.net/bootstrap/3.3.4/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="assets/css/style.css"/>
     <script src="https://yastatic.net/jquery/2.2.3/jquery.min.js"></script>
     <script src="https://yastatic.net/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="node_modules/rainbowvis.js/rainbowvis.js" type="text/javascript"></script>
+	
     <script src="assets/js/regions.js" type="text/javascript"></script>
+	<script src="assets/js/ajax.js" type="text/javascript"></script>
     <style>
         html, body, #map {
             width: 100%;
@@ -21,6 +24,21 @@
     </style>
 </head>
 <body>
-	<div id="map">
-	</div>
+<div class="wrapper">
+
+  <div class="box b">B</div>
+  <div class="box c"></div>
+  <div class="box map" id="map"></div>
+  <div class="box start">
+	Greeting!
+	<form method="post" action="" id="ajaxform"> <br />
+		<div>
+		<input type="checkbox" id="weather" name="weather" value="weather">
+		<label for="weather">Хорошая погода?</label>
+	  </div>
+		<input type="submit" value="Найти!" disabled/>
+	</form>
+  </div>
+</div>
+	
 </body></html>
