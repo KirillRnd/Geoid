@@ -31,4 +31,48 @@ $(document).ready(function() { // вся мaгия пoслe зaгрузки ст
 function AfterLoad(data){
 	$(".start").hide();
 	$(".placeholder").hide();
+	LoadPoints(data);
+}
+function LoadPoints(data) {
+	features=[];
+	var obj;
+	var AddFeat;
+	for(var key in data) {
+		obj=data[key];
+			AddFeat={};
+			AddFeat = {type: "Feature"};
+			AddFeat.geometry=obj.geoData;
+			AddFeat.geometry.coordinates.reverse();
+			AddFeat.id = key;
+			AddFeat.properties={};
+			AddFeat.properties.hintContent=obj.ObjectName;
+			
+			var $info = $("<div>").addClass("info")
+                .append($("<p>").append($("<strong>").text( obj.ObjectName)))
+                .append($("<p>").text("Телефон: " + obj.HelpPhone))
+				.append($("<p>").text("Адрес: " + obj.Address))
+				.append($("<p>").text("Расстояние: " + Math.round(obj.distance)+"км"))
+				.append($("<p>").text("Погода: " + obj.Rain));
+				
+			
+			AddFeat.properties.balloonContent=$info.html();
+			
+			
+			features.push(AddFeat);
+    }
+		MyObjectManager = new ymaps.ObjectManager({
+            // Чтобы метки начали кластеризоваться, выставляем опцию.
+            clusterize: true,
+            // ObjectManager принимает те же опции, что и кластеризатор.
+            gridSize: 32,
+            clusterDisableClickZoom: true
+        });
+		var jscoll={
+			"type": "FeatureCollection",
+			"features": features
+		}
+		MyObjectManager.add(JSON.stringify(jscoll));
+		MyObjectManager.objects.options.set('preset', 'islands#greenDotIcon');
+		MyObjectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
+		myMap.geoObjects.add(MyObjectManager);
 }

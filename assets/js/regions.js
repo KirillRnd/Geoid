@@ -13,12 +13,12 @@ var dataSin={"RU-ALT":["Алтайский край","22"],"RU-AMU":["Амурс
 var geoPosition;
 var geoPositionGet=0;
 ymaps.ready(init);
-
+var myMap;
 
 function init() {
 	
    objectManager = new ymaps.ObjectManager();
-   var myMap;
+   
     ymaps.geolocation.get().then(function (res) {
         var mapContainer = $('#map'),
             bounds = res.geoObjects.get(0).properties.get('boundedBy'),
@@ -40,7 +40,7 @@ function init() {
 		
     }).then( function(){
 		$("#ajaxform").find('input[type="submit"]').prop('disabled', false);
-		myMap.geoObjects.add(objectManager);
+		
 	});
     
     function createMap (state) {
