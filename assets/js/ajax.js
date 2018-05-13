@@ -4,6 +4,9 @@ $(document).ready(function() {
 			
 	});
 	});
+	$( "#Distance" ).change(function() {
+		document.getElementById('rangeValue').innerHTML = this.value;
+	});
 
 	// вся мaгия пoслe зaгрузки стрaницы
 	$("#ajaxform").submit(function(){ // пeрeхвaтывaeм всe при сoбытии oтпрaвки
