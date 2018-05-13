@@ -30,6 +30,11 @@ function init() {
         createMap(mapState);
 		geoPositionGet=1;
 		geoPosition=res.geoObjects.position;
+		res.geoObjects.options.set('preset', 'islands#redCircleIcon');
+        res.geoObjects.get(0).properties.set({
+            balloonContentBody: 'Мое местоположение'
+        });
+        myMap.geoObjects.add(res.geoObjects);
     }, function (e) {
         // Если местоположение невозможно получить, то просто создаем карту.
         createMap({
