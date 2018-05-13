@@ -30,5 +30,5 @@ $(document).ready(function() { // вся мaгия пoслe зaгрузки ст
 });
 function AfterLoad(data){
 	$(".start").hide();
-	
+	$(".placeholder").hide();
 }
