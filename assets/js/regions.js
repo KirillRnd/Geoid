@@ -19,7 +19,9 @@ function init() {
 	
    objectManager = new ymaps.ObjectManager();
    
-    ymaps.geolocation.get().then(function (res) {
+    ymaps.geolocation.get({
+        provider: 'browser',
+		mapStateAutoApply: true}).then(function (res) {
         var mapContainer = $('#map'),
             bounds = res.geoObjects.get(0).properties.get('boundedBy'),
             // Рассчитываем видимую область для текущей положения пользователя.
