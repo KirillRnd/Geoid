@@ -2,11 +2,12 @@
 .wrapper {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 10% 10% 60% 10% 10%;
-    grid-template-rows: 20px 40px 600px 40px 20px;
+    grid-template-columns: 8% 10% 60% 10% 8%;
+    grid-template-rows: 50px 40px 600px 40px 20px;
     background-color: #fff;
     color: #444;
     width: 100%;
+    margin-top: 10px;
     }
 
     .box {
@@ -16,14 +17,31 @@
 		z-index:0;
     }
 
-    
-    .b {
+    .logo{
+		grid-column: 1;
+		grid-row: 1;
+		padding: 5px;
+	}
+	.logo img{
+		height: 100%;
+		margin-left: 80px;
+	}
+	.picnick{
+		grid-column: 2/4;
+		grid-row: 1;
+		padding-bottom: 15px;
+	}
+	
+    .rightside {
         grid-column: 5;
-        grid-row: 2 / 3;
+        grid-row: 2 / 5;
+		
+		background-image:url(/assets/images/rightpic.jpg);
     }
-    .c {
+    .leftside {
         grid-column: 1 ;
-        grid-row: 2 ;
+        grid-row: 2/5 ;
+		background-image:url(/assets/images/leftpic.jpg);
     }
     .map {
         grid-column: 2/5;
@@ -36,4 +54,5 @@
 		z-index:1;
 		background-color: white;
 		color:black;
+		padding: 40px; 
 	}
